@@ -33,3 +33,4 @@ echo "list running apps"
 pm2 list 
 
 echo "Application deployed succesfully"
+
