@@ -19,12 +19,16 @@ pipeline {
             environment { 
                 SSH_CRED = credentials('jenkinstest-pem')
             }
+            
 
             steps {
                 //=============== THIRD APPROACH
                 script {
                     sh """
                     #!/bin/bash
+                    chown -R ubuntu ~/.ssh/Devops.pem
+                    chmod 700 ~/.ssh/Devops.pem
+                    chmod 600 ~/.ssh/Devops.pem
                     ssh -i $SSH_CRED -t -o StrictHostKeyChecking=no ubuntu@54.157.52.76 << EOF
                     curl ifconfig.co/ip
                     df -h
