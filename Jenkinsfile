@@ -17,7 +17,7 @@ pipeline {
         stage("connect to deploy server"){
 
             environment { 
-                SSH_CRED = credentials('nginx-pem')
+                SSH_CRED = credentials('jenkinstest-pem')
             }
 
             steps {
@@ -25,7 +25,7 @@ pipeline {
                 script {
                     sh """
                     #!/bin/bash
-                    ssh -i $SSH_CRED -t -o StrictHostKeyChecking=no ubuntu@ec2-18-212-162-216.compute-1.amazonaws.com << EOF
+                    ssh -i $SSH_CRED -t -o StrictHostKeyChecking=no ubuntu@ec2-54-157-52-76.compute-1.amazonaws.com << EOF
                     curl ifconfig.co/ip
                     df -h
                     exit
