@@ -29,7 +29,7 @@ pipeline {
                     chown -R ubuntu ~/.ssh/Devops.pem
                     chmod 700 ~/.ssh/Devops.pem
                     chmod 600 ~/.ssh/Devops.pem
-                    ssh -i $SSH_CRED -t -o StrictHostKeyChecking=no ubuntu@54.157.52.76 << EOF
+                    ssh -i $SSH_CRED -t -o StrictHostKeyChecking=no ubuntu@54.197.15.121 << EOF
                     curl ifconfig.co/ip
                     df -h
                     exit
